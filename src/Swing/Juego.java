@@ -13,19 +13,42 @@ import javax.swing.JOptionPane;
  * @author Eric Rodriguez
  */
 public class Juego extends javax.swing.JFrame {
-
+   
+    private Juego log = new Juego();
+    private boolean caraUp = false;
+    private ImageIcon im1;
+    private ImageIcon im2;
+    private JButton pbtn1;
+    private JButton pbtn2;
+     
+    private boolean primerc = false;
+   
+    String nombre2; 
+    String nombre1;
+     private int turno = 0;
     /**
      * Creates new form Juego
      */
     public Juego() {
         initComponents();
+        
+        JOptionPane.showMessageDialog(null, "Al ingresar sera el turno del segundo jugador", "IMPORTANTE",JOptionPane.WARNING_MESSAGE);
+          nombre2 = JOptionPane.showInputDialog(this, "Favor ingrese nombre del primer jugador; ");
+          nombre1 = JOptionPane.showInputDialog(this, "Favor ingrese nombre del segundo jugador; ");
+          if(nombre1.equals(nombre2)){
+           JOptionPane.showMessageDialog(null, "Los nombres deben ser diferentes, intente nuevamente", "Nombre invalido", JOptionPane.ERROR_MESSAGE);  
+           System.exit(0);
+          }
+        
+         
+        barajear();
     }
     
     private void barajear(){
-         int[] numbers = log.barajear();
+         int[] numbers = Juego.barajear();
 
         btnC1.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[1] + ".jpg")));
-        jButton.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[2] + ".jpg")));
+        btnC2.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[2] + ".jpg")));
         btnC3.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[3] + ".jpg")));
         btnC4.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[4] + ".jpg")));
         btnC5.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[5] + ".jpg")));
@@ -39,7 +62,98 @@ public class Juego extends javax.swing.JFrame {
         btnC13.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[13] + ".jpg")));
         btnC14.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[14] + ".jpg")));
         btnC15.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[15] + ".jpg")));
-        btnC16.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[0] + ".jpg")));
+        btnC16.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[16] + ".jpg")));
+        btnC17.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[17] + ".jpg")));
+        btnC18.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[18] + ".jpg")));
+        btnC19.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[19] + ".jpg")));
+        btnC20.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[20] + ".jpg")));
+        btnC21.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[21] + ".jpg")));
+        btnC22.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[22] + ".jpg")));
+        btnC23.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[23] + ".jpg")));
+        btnC24.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[24] + ".jpg")));
+        btnC25.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[25] + ".jpg")));
+        btnC26.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[26] + ".jpg")));
+        btnC27.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[27] + ".jpg")));
+        btnC28.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[28] + ".jpg")));
+        btnC29.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[29] + ".jpg")));
+        btnC30.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[30] + ".jpg")));
+        btnC31.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[31] + ".jpg")));
+        btnC32.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[32] + ".jpg")));
+        btnC33.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[33] + ".jpg")));
+        btnC34.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[34] + ".jpg")));
+        btnC35.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[35] + ".jpg")));
+        btnC36.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[36] + ".jpg")));
+    }
+    private void btnEnabled(JButton btn) { //Metodo que habilita o deshabilita os botones, por si ya ha sido volteada la carta
+
+        if (!caraUp) {
+            btn.setEnabled(false);
+            im1 = (ImageIcon) btn.getDisabledIcon();
+            pbtn1 = btn;
+            caraUp = true;
+            primerc = false;
+            
+        } else {
+            btn.setEnabled(false);
+            im2 = (ImageIcon) btn.getDisabledIcon();
+            pbtn2 = btn;
+            primerc = true;
+            if(turno ==0){
+               puntaje1 += 20;
+            } else {
+                puntaje2 += 20;
+            }
+            compare();
+            turno = 1 - turno;  
+            if (!btnC1.isEnabled() && !btnC2.isEnabled() && !btnC3.isEnabled() && !btnC4.isEnabled() && !btnC5.isEnabled() && !btnC6.isEnabled()
+                && !btnC7.isEnabled() && !btnC8.isEnabled() && !btnC9.isEnabled() && !btnC10.isEnabled() && !btnC11.isEnabled()
+                && !btnC12.isEnabled() && !btnC13.isEnabled() && !btnC14.isEnabled() && !btnC15.isEnabled() && !btnC16.isEnabled()) {
+            pregwin();
+        } else {
+           
+            
+            JOptionPane.showMessageDialog(this, "Turno de " + (turno == 0 ? nombre1 : nombre2)); 
+            
+           
+            pregwin();
+        }
+    }
+    }
+    private void compare() {
+        if (caraUp && primerc) {
+
+            if (im1.getDescription().compareTo(im2.getDescription()) != 0) {
+                pbtn1.setEnabled(true);
+                pbtn2.setEnabled(true);
+                   if (turno == 0 && puntaje1 > 10) {
+                    puntaje1 -= 10;
+                } else if (turno == 1 && puntaje2 > 10) {
+                    puntaje2 -= 10; 
+                 
+                }
+            }
+            caraUp = false;
+        }
+    }
+    private void pregwin() {
+        if (!btnC1.isEnabled() && !btnC2.isEnabled() && !btnC3.isEnabled() && !btnC4.isEnabled() && !btnC5.isEnabled() && !btnC6.isEnabled()
+                && !btnC7.isEnabled() && !btnC8.isEnabled() && !btnC9.isEnabled() && !btnC10.isEnabled() && !btnC11.isEnabled()
+                && !btnC12.isEnabled() && !btnC13.isEnabled() && !btnC14.isEnabled() && !btnC15.isEnabled() && !btnC16.isEnabled()) {
+            String mensajegan = "";
+            
+            if (puntaje1 > puntaje2) {
+                mensajegan = "Ganador: " + nombre1 + " por " + (puntaje1 - puntaje2) + " puntos.";
+                JOptionPane.showMessageDialog(null,mensajegan);
+            } else if (puntaje2 > puntaje1) {
+                mensajegan = "Ganador: " + nombre2 + " por " + (puntaje2 - puntaje1) + " puntos.";
+                JOptionPane.showMessageDialog(null, mensajegan);
+            } else {
+                mensajegan = "Empate entre " + nombre1 + " y " + nombre2 + ".";
+                JOptionPane.showMessageDialog(null, mensajegan);
+            }
+
+            JOptionPane.showMessageDialog(this, " Juego Finalizado", "", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     /**
@@ -94,86 +208,268 @@ public class Juego extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 204));
 
-        btnC1.setText("jButton1");
+        btnC1.setBackground(new java.awt.Color(255, 255, 255));
+        btnC1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Untitled design.jpg"))); // NOI18N
+        btnC1.setText(" ");
+        btnC1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC1ActionPerformed(evt);
+            }
+        });
 
         titulo.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         titulo.setForeground(new java.awt.Color(0, 0, 0));
         titulo.setText("MEMORAMA -  CRUMBL");
 
-        btnC2.setText("jButton1");
+        btnC2.setBackground(new java.awt.Color(255, 255, 255));
+        btnC2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Untitled design.jpg"))); // NOI18N
         btnC2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnC2ActionPerformed(evt);
             }
         });
 
+        btnC3.setBackground(new java.awt.Color(255, 255, 255));
+        btnC3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Untitled design.jpg"))); // NOI18N
         btnC3.setText("jButton1");
+        btnC3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC3ActionPerformed(evt);
+            }
+        });
 
+        btnC4.setBackground(new java.awt.Color(255, 255, 255));
+        btnC4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Untitled design.jpg"))); // NOI18N
         btnC4.setText("jButton1");
+        btnC4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC4ActionPerformed(evt);
+            }
+        });
 
         btnC5.setText("jButton1");
+        btnC5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC5ActionPerformed(evt);
+            }
+        });
 
         btnC6.setText("jButton1");
+        btnC6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC6ActionPerformed(evt);
+            }
+        });
 
         btnC7.setText("jButton1");
+        btnC7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC7ActionPerformed(evt);
+            }
+        });
 
         btnC8.setText("jButton1");
+        btnC8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC8ActionPerformed(evt);
+            }
+        });
 
         btnC9.setText("jButton1");
+        btnC9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC9ActionPerformed(evt);
+            }
+        });
 
         btnC10.setText("jButton1");
+        btnC10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC10ActionPerformed(evt);
+            }
+        });
 
         btnC11.setText("jButton1");
+        btnC11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC11ActionPerformed(evt);
+            }
+        });
 
         btnC12.setText("jButton1");
+        btnC12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC12ActionPerformed(evt);
+            }
+        });
 
         btnC17.setText("jButton1");
+        btnC17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC17ActionPerformed(evt);
+            }
+        });
 
         btnC15.setText("jButton1");
+        btnC15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC15ActionPerformed(evt);
+            }
+        });
 
         btnC14.setText("jButton1");
+        btnC14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC14ActionPerformed(evt);
+            }
+        });
 
         btnC18.setText("jButton1");
+        btnC18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC18ActionPerformed(evt);
+            }
+        });
 
         btnC16.setText("jButton1");
+        btnC16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC16ActionPerformed(evt);
+            }
+        });
 
         btnC13.setText("jButton1");
+        btnC13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC13ActionPerformed(evt);
+            }
+        });
 
         btnC21.setText("jButton1");
+        btnC21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC21ActionPerformed(evt);
+            }
+        });
 
         btnC22.setText("jButton1");
+        btnC22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC22ActionPerformed(evt);
+            }
+        });
 
         btnC23.setText("jButton1");
+        btnC23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC23ActionPerformed(evt);
+            }
+        });
 
         btnC20.setText("jButton1");
+        btnC20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC20ActionPerformed(evt);
+            }
+        });
 
         btnC24.setText("jButton1");
+        btnC24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC24ActionPerformed(evt);
+            }
+        });
 
         btnC19.setText("jButton1");
+        btnC19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC19ActionPerformed(evt);
+            }
+        });
 
         btnC27.setText("jButton1");
+        btnC27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC27ActionPerformed(evt);
+            }
+        });
 
         btnC29.setText("jButton1");
+        btnC29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC29ActionPerformed(evt);
+            }
+        });
 
         btnC26.setText("jButton1");
+        btnC26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC26ActionPerformed(evt);
+            }
+        });
 
         btnC28.setText("jButton1");
+        btnC28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC28ActionPerformed(evt);
+            }
+        });
 
         btnC25.setText("jButton1");
+        btnC25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC25ActionPerformed(evt);
+            }
+        });
 
         btnC30.setText("jButton1");
+        btnC30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC30ActionPerformed(evt);
+            }
+        });
 
         btnC31.setText("jButton1");
+        btnC31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC31ActionPerformed(evt);
+            }
+        });
 
         btnC32.setText("jButton1");
+        btnC32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC32ActionPerformed(evt);
+            }
+        });
 
         btnC33.setText("jButton1");
+        btnC33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC33ActionPerformed(evt);
+            }
+        });
 
         btnC34.setText("jButton1");
+        btnC34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC34ActionPerformed(evt);
+            }
+        });
 
         btnC35.setText("jButton1");
+        btnC35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC35ActionPerformed(evt);
+            }
+        });
 
         btnC36.setText("jButton1");
+        btnC36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC36ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -342,6 +638,147 @@ public class Juego extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnC2ActionPerformed
 
+    private void btnC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC1ActionPerformed
+
+    private void btnC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC3ActionPerformed
+
+    private void btnC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC4ActionPerformed
+
+    private void btnC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC5ActionPerformed
+
+    private void btnC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC6ActionPerformed
+
+    private void btnC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC7ActionPerformed
+
+    private void btnC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC8ActionPerformed
+
+    private void btnC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC9ActionPerformed
+
+    private void btnC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC10ActionPerformed
+
+    private void btnC11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC11ActionPerformed
+
+    private void btnC12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC12ActionPerformed
+
+    private void btnC13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC13ActionPerformed
+
+    private void btnC14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC14ActionPerformed
+
+    private void btnC15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC15ActionPerformed
+
+    private void btnC16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC16ActionPerformed
+
+    private void btnC17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC17ActionPerformed
+
+    private void btnC18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC18ActionPerformed
+
+    private void btnC19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC19ActionPerformed
+
+    private void btnC20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC20ActionPerformed
+
+    private void btnC21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC21ActionPerformed
+
+    private void btnC22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC22ActionPerformed
+
+    private void btnC23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC23ActionPerformed
+
+    private void btnC24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC24ActionPerformed
+
+    private void btnC25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC25ActionPerformed
+
+    private void btnC26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC26ActionPerformed
+
+    private void btnC27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC27ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC27ActionPerformed
+
+    private void btnC28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC28ActionPerformed
+
+    private void btnC29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC29ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC29ActionPerformed
+
+    private void btnC30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC30ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC30ActionPerformed
+
+    private void btnC31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC31ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC31ActionPerformed
+
+    private void btnC32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC32ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC32ActionPerformed
+
+    private void btnC33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC33ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC33ActionPerformed
+
+    private void btnC34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC34ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC34ActionPerformed
+
+    private void btnC35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC35ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC35ActionPerformed
+
+    private void btnC36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC36ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC36ActionPerformed
+                                   
+   
     /**
      * @param args the command line arguments
      */
