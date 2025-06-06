@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Swing;
+import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +19,27 @@ public class Juego extends javax.swing.JFrame {
      */
     public Juego() {
         initComponents();
+    }
+    
+    private void barajear(){
+         int[] numbers = log.barajear();
+
+        jButton1.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[1] + ".jpg")));
+        jButton.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[2] + ".jpg")));
+        btnC3.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[3] + ".jpg")));
+        btnC4.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[4] + ".jpg")));
+        btnC5.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[5] + ".jpg")));
+        btnC6.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[6] + ".jpg")));
+        btnC7.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[7] + ".jpg")));
+        btnC8.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[8] + ".jpg")));
+        btnC9.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[9] + ".jpg")));
+        btnC10.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[10] + ".jpg")));
+        btnC11.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[11] + ".jpg")));
+        btnC12.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[12] + ".jpg")));
+        btnC13.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[13] + ".jpg")));
+        btnC14.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[14] + ".jpg")));
+        btnC15.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[15] + ".jpg")));
+        btnC16.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/0" + numbers[0] + ".jpg")));
     }
 
     /**
@@ -70,6 +95,11 @@ public class Juego extends javax.swing.JFrame {
         titulo.setText("MEMORAMA -  CRUMBL");
 
         jButton37.setText("jButton1");
+        jButton37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton37ActionPerformed(evt);
+            }
+        });
 
         jButton38.setText("jButton1");
 
@@ -251,6 +281,8 @@ public class Juego extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
+        jButton1.getAccessibleContext().setAccessibleName("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -266,6 +298,10 @@ public class Juego extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton37ActionPerformed
 
     /**
      * @param args the command line arguments
