@@ -103,7 +103,7 @@ public class Juego extends javax.swing.JFrame {
             } else {
                 puntaje2 += 20;
             }
-            compare();
+            comparar();
             turno = 1 - turno;  
             if (!btnC1.isEnabled() && !btnC2.isEnabled() && !btnC3.isEnabled() && !btnC4.isEnabled() && !btnC5.isEnabled() && !btnC6.isEnabled()
                 && !btnC7.isEnabled() && !btnC8.isEnabled() && !btnC9.isEnabled() && !btnC10.isEnabled() && !btnC11.isEnabled()
@@ -119,18 +119,13 @@ public class Juego extends javax.swing.JFrame {
         }
     }
     }
-    private void compare() {
+    private void comparar() {
         if (caraUp && primerc) {
 
             if (im1.getDescription().compareTo(im2.getDescription()) != 0) {
                 pbtn1.setEnabled(true);
                 pbtn2.setEnabled(true);
-                   if (turno == 0 && puntaje1 > 10) {
-                    puntaje1 -= 10;
-                } else if (turno == 1 && puntaje2 > 10) {
-                    puntaje2 -= 10; 
-                 
-                }
+                   
             }
             caraUp = false;
         }
@@ -636,146 +631,182 @@ public class Juego extends javax.swing.JFrame {
 
     private void btnC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC2ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC2ActionPerformed
 
     private void btnC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC1ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC1ActionPerformed
 
     private void btnC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC3ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC3ActionPerformed
 
     private void btnC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC4ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC4ActionPerformed
 
     private void btnC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC5ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC5ActionPerformed
 
     private void btnC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC6ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC6ActionPerformed
 
     private void btnC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC7ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC7ActionPerformed
 
     private void btnC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC8ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC8ActionPerformed
 
     private void btnC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC9ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC9ActionPerformed
 
     private void btnC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC10ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC10ActionPerformed
 
     private void btnC11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC11ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC11ActionPerformed
 
     private void btnC12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC12ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC12ActionPerformed
 
     private void btnC13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC13ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC13ActionPerformed
 
     private void btnC14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC14ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC14ActionPerformed
 
     private void btnC15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC15ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC15ActionPerformed
 
     private void btnC16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC16ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC16ActionPerformed
 
     private void btnC17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC17ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC17ActionPerformed
 
     private void btnC18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC18ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC18ActionPerformed
 
     private void btnC19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC19ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC19ActionPerformed
 
     private void btnC20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC20ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC20ActionPerformed
 
     private void btnC21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC21ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC21ActionPerformed
 
     private void btnC22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC22ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC22ActionPerformed
 
     private void btnC23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC23ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC23ActionPerformed
 
     private void btnC24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC24ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC24ActionPerformed
 
     private void btnC25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC25ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC25ActionPerformed
 
     private void btnC26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC26ActionPerformed
-        // TODO add your handling code here:
+comparar();        
+// TODO add your handling code here:
     }//GEN-LAST:event_btnC26ActionPerformed
 
     private void btnC27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC27ActionPerformed
+     comparar();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnC27ActionPerformed
 
     private void btnC28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC28ActionPerformed
-        // TODO add your handling code here:
+comparar();        
+// TODO add your handling code here:
     }//GEN-LAST:event_btnC28ActionPerformed
 
     private void btnC29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC29ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC29ActionPerformed
 
     private void btnC30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC30ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC30ActionPerformed
 
     private void btnC31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC31ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC31ActionPerformed
 
     private void btnC32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC32ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC32ActionPerformed
 
     private void btnC33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC33ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC33ActionPerformed
 
     private void btnC34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC34ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC34ActionPerformed
 
     private void btnC35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC35ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC35ActionPerformed
 
     private void btnC36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC36ActionPerformed
         // TODO add your handling code here:
+        comparar();
     }//GEN-LAST:event_btnC36ActionPerformed
                                    
    
